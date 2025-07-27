@@ -12,9 +12,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-@Controller("/design-patterns")
-public class DesignPatternController {
-    private static final Logger log = LoggerFactory.getLogger(DesignPatternController.class);
+@Controller("/design-patterns/creational")
+public class DesignPatternCreationalController {
+    private static final Logger log = LoggerFactory.getLogger(DesignPatternCreationalController.class);
 
     @Get("/singleton")
     public String getSingleton() {

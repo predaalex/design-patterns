@@ -3,6 +3,10 @@ package com.example.designPatterns.creational.Prototype;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 	Creates new objects by copying an existing object (the prototype) instead of creating new instances from scratch.
+ * 	This is often more efficient for complex object creation.
+ */
 public class Employees implements Cloneable {
 
     private final List<String> empList;
