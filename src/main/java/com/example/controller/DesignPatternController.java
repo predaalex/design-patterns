@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.designPatterns.creational.builder.Computer;
 import com.example.designPatterns.creational.factory.VehicleFactory;
 import com.example.designPatterns.creational.singleton.Singleton;
 import io.micronaut.http.annotation.Controller;
@@ -22,5 +23,15 @@ public class DesignPatternController {
     public String getFactory(@PathVariable String type) {
         log.info("getFactory");
         return VehicleFactory.getVehicle(type).deliver();
+    }
+
+    @Get("/builder")
+    public String getBuilder() {
+        log.info("getBuilder");
+        return new Computer.ComputerBuilder("5GB", "Gigabyte")
+                .wifi(true)
+                .bluetooth(false)
+                .build()
+                .toString();
     }
 }
