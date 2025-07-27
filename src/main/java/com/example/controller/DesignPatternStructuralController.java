@@ -6,8 +6,13 @@ import com.example.designPatterns.structural.composite.Circle;
 import com.example.designPatterns.structural.composite.Drawing;
 import com.example.designPatterns.structural.composite.Shape;
 import com.example.designPatterns.structural.composite.Triagle;
+import com.example.designPatterns.structural.proxy.CommandExecutor;
+import com.example.designPatterns.structural.proxy.CommandExecutorProxy;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.PathVariable;
+
+import java.net.URISyntaxException;
 
 @Controller("/design-patterns/structural")
 public class DesignPatternStructuralController {
@@ -38,5 +43,11 @@ public class DesignPatternStructuralController {
         drawing.addShape(tri);
         drawing.addShape(cir);
         drawing.draw("Blue");
+    }
+
+    @Get("/proxy/{user}/{cmd}")
+    public void getProxy(@PathVariable String user, @PathVariable String cmd) throws URISyntaxException {
+        CommandExecutor commandExecutor = new CommandExecutorProxy(user);
+        commandExecutor.runCommand(cmd);
     }
 }
