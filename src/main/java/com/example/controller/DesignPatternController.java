@@ -39,7 +39,7 @@ public class DesignPatternController {
     }
 
     @Get("/prototype")
-    public String getPrototype() {
+    public String getPrototype() throws CloneNotSupportedException {
         log.info("getPrototype");
         Employees emps = new Employees();
         emps.loadData();

@@ -1,11 +1,8 @@
 package com.example.designPatterns.creational.Prototype;
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class Employees implements Cloneable {
 
     private final List<String> empList;
@@ -25,10 +22,13 @@ public class Employees implements Cloneable {
         empList.add("Lisa");
     }
 
+    public List<String> getEmpList() {
+        return empList;
+    }
+
     @Override
-    public Object clone() {
-        List<String> temp = new ArrayList<>(this.getEmpList());
-        return new Employees(temp);
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 }
